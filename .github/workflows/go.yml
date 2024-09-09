@@ -11,6 +11,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 120
 
     strategy:
       matrix:
@@ -28,5 +29,5 @@ jobs:
       run: go test -v ./...
 
     - name: Benchmark
-      run: go test -bench=. -timeout 30m -v ./...
+      run: go test -bench=. -benchtime=12s -timeout 30m -v ./...
       timeout-minutes: 30
